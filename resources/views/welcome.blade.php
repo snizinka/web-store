@@ -7,9 +7,9 @@
                 @isset($products)
                     @foreach($products as $product)
                        <div class="product">
-                           <img style="height: 300px; width: auto;" src="{{asset('storage/images/'.$product->thumbnail)}}" alt="{{$product->category->name." ".$product->model." ".$product->storage_gb."GB ".$product->color}}">
-                           <p>{{$product->category->name}} {{$product->model}} {{$product->storage_gb}}GB {{$product->color}}</p>
-                           <p>{{$product->price}}</p>
+                           <img src="{{asset('storage/images/'.$product->thumbnail)}}" alt="{{$product->category->name." ".$product->model." ".$product->storage_gb."GB ".$product->color}}">
+                           <h2>{{$product->category->name}} {{$product->model}} {{$product->storage_gb}}GB {{$product->color}}</h2>
+                           <p class="price">{{$product->price}} ₴</p>
                            <a style="padding: 3px 10px; border: solid crimson 2px;" href="{{route('product', $product->id)}}">Details</a>
                        </div>
                     @endforeach
