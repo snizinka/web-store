@@ -1,13 +1,21 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('templates.layout')
 
-</body>
-</html>
+@section('content')
+<div class="container">
+    @isset($product)
+        <div class="product">
+            <img src="{{asset('storage/images/'.$product->thumbnail)}}" alt="{{$product->category->name." ".$product->model." ".$product->storage_gb."GB ".$product->color}}">
+            <p>{{$product->category->name." ".$product->model." ".$product->storage_gb."GB ".$product->color}}</p>
+            <p>{{$product->price}}</p>
+
+            <div>
+                @isset($colors)
+                    @foreach($colors as $color)
+                        <a href="{{route('product', $color->id)}}">{{$color->color}}</a>
+                    @endforeach
+                @endisset
+            </div>
+        </div>
+    @endisset
+</div>
+@endsection

@@ -10,6 +10,9 @@ class ProductController extends Controller
     public function product(Request $request, $id) {
         $product = Product::where('id', $id)->first();
 
-        return view('product', compact('product'));
+        $colors = Product::where('color', '!=', $product->color)->where('model', $product->model)->where('storage_gb', $product->storage_gb)->get();
+        $storage_gb = Product::where('color', '=', $product->color)->where('model', $product->model)->where('storage_gb', '!=', $product->storage_gb)->get();
+
+        return view('product', compact(['product', 'colors', 'storage_gb']));
     }
 }
