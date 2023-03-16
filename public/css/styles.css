@@ -74,4 +74,5 @@ nav ul li button, nav ul li a {
     padding: 2px 4px;
     border: 1px solid black;
     margin: 0 !important;
+    border-radius: 6px;
 }
