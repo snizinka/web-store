@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function product(Request $request, $id) {
+    public function product($id) {
         $product = Product::where('id', $id)->first();
 
         $colors = Product::where('model', $product->model)->where('storage_gb', $product->storage_gb)->get();

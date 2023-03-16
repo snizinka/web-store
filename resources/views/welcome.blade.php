@@ -2,7 +2,7 @@
 
 @section('content')
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen">
-
+            <h1 style="text-align: center; margin-bottom: 80px;">{{$category->name}}</h1>
             <div class="product-container" style="display: flex; gap: 10px; flex-wrap: wrap; width: 90vw; justify-content: center">
                 @isset($category)
                     @foreach($category->products as $product)
